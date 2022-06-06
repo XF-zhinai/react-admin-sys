@@ -3,6 +3,7 @@ import React from 'react'
 import { BrowserRouter, Route,  Routes} from 'react-router-dom'
 import Admin from './pages/admin/admin'
 import Login from './pages/login/login'
+import './App.css';
 class App extends React.Component {
     render() {
         return (
