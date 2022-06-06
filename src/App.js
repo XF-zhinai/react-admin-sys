@@ -1,10 +1,18 @@
 // 根文件
 import React from 'react'
-import { Button } from 'antd';
+import { BrowserRouter, Route,  Routes} from 'react-router-dom'
+import Admin from './pages/admin/admin'
+import Login from './pages/login/login'
 class App extends React.Component {
     render() {
         return (
-            <Button type="primary">Button</Button>
+            // 创建路由并当前显示
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Admin />}></Route>
+                    <Route path="/login" element={<Login />}></Route>
+                </Routes>
+            </BrowserRouter>
         )
     }
 }
