@@ -1,0 +1,13 @@
+{
+    "states": 0,
+    "data": {
+        "_id": "5ca9c2ebb49ef916541160b9",
+        "username": "admin",
+        "password": "admin",
+        "create_time": 1554629355811,
+        "_v": 0,
+        "role": {
+            "menus": []
+        }
+    }
+}
