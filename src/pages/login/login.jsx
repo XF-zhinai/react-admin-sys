@@ -1,8 +1,12 @@
 import React from 'react'
+import { withRouter } from "../../utils/global"
+import { Navigate  } from 'react-router-dom'
+import storage from '../../utils/storage'
 import {
     Form,
     Input, 
     Button,
+    message
 } from 'antd'
 import {
     UserOutlined,
@@ -16,15 +20,19 @@ class Login extends React.Component {
         password: 'admin'
     }
     onFinish = (values) => {
-        console.log('Received values of form: ', values);
-    
         reqLogin(values).then(res => {
-            console.log(res);
+            storage.saveUser(res.data)
+            this.props.navigate('/', { replace: true })
+            message.success('登录成功！')
         })
         
     }
 
     render() {
+        const { username, _id } = storage.getUser()
+        if (username && _id) {
+            return <Navigate to='/' replace/>
+        }
         return (
             <div className="login_box">
                 <header className="login_top">
@@ -94,4 +102,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login
+export default withRouter(Login)
