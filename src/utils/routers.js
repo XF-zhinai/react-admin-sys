@@ -17,6 +17,7 @@ const route = [
         element: <RouteGuard><Admin /></RouteGuard>,
         children: [
             {
+                title: '首页',
                 path: 'home',
                 element: lazy(import("../pages/home"))
             }, {

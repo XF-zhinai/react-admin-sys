@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { Breadcrumb, Layout } from 'antd';
+import { Layout } from 'antd';
 import Head from '../../components/Header';
 import NavLeft from '../../components/Sider';
 class Admin extends React.Component {
@@ -20,22 +20,14 @@ class Admin extends React.Component {
                         <Head />
                         <Layout.Content
                             style={{
-                                margin: '0 16px',
+                                background: '#FFFFFF',
+                                margin: '20px',
                             }}
                         >
-                            <Breadcrumb
-                                style={{
-                                margin: '16px 0',
-                                }}
-                            >
-                                <Breadcrumb.Item>User</Breadcrumb.Item>
-                                <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                            </Breadcrumb>
                             <div
                                 className="site-layout-background"
                                 style={{
-                                padding: 24,
-                                minHeight: 360,
+                                    minHeight: 360,
                                 }}
                             >
                                 <Outlet />
@@ -44,9 +36,10 @@ class Admin extends React.Component {
                         <Layout.Footer
                             style={{
                                 textAlign: 'center',
+                                color: '#aaaaaa'
                             }}
                         >
-                        Ant Design ©2018 Created by Ant UED
+                        推荐使用谷歌浏览器，可以获得最佳页面操作体验
                         </Layout.Footer>
                     </Layout>
                 </Layout>

@@ -5,7 +5,7 @@ import { message } from 'antd';
 import 'nprogress/nprogress.css'
 // 创建axios实例
 const http = axios.create({
-    baseURL: 'http://47.102.40.110:3000',
+    // baseURL: '',
     timeout: 1000,
 })
 
@@ -21,7 +21,7 @@ http.interceptors.request.use(config => {
 http.interceptors.response.use(res => {
     // 关闭进度条
     nprogress.done()
-    if (res.data.status === 0) {
+    if (res.data.status === 0 || res.status === 200) {
         return res.data
     } else {
         message.error(res.data.msg)

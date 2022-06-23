@@ -40,10 +40,12 @@
   },
   "devDependencies": {
     "axios": "^0.27.2",
+    "jsonp": "^0.2.1",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "sass": "^1.52.2",
     "sass-loader": "^13.0.0",
     "store": "^2.0.12"
-  }
+  },
+  "proxy": "http://www.weather.com.cn"
 }
