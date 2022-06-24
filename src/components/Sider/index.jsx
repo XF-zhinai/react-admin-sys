@@ -104,7 +104,7 @@ const NavLeft = () => {
             >
                 <Link to="/" className="navLeft_top">
                     <img src={require('../../assets/images/1.png')} alt="" />
-                    <h1>管理后台</h1>
+                    <h1>智艾后台</h1>
                 </Link>
                 <Menu
                     theme="dark"

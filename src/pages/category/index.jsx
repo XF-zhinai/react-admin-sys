@@ -119,7 +119,7 @@ class Category extends React.Component {
             <span>
                 <LinkButton onClick={this.handleOnCategory}>一级分类列表</LinkButton>
                 <ArrowRightOutlined style={{marginRight: '10px'}} />
-                <span>{parentName}</span>-
+                <span>{parentName}</span>
             </span>
         )
         return (
