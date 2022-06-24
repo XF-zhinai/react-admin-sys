@@ -21,7 +21,8 @@ http.interceptors.request.use(config => {
 http.interceptors.response.use(res => {
     // 关闭进度条
     nprogress.done()
-    if (res.data.status === 0 || res.status === 200) {
+    if (res.status === 200) {
+        if (res.data.status === 1) return message.error(res.data.msg)
         return res.data
     } else {
         message.error(res.data.msg)
