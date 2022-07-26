@@ -5,7 +5,7 @@ import { message } from 'antd';
 import 'nprogress/nprogress.css'
 // 创建axios实例
 const http = axios.create({
-    // baseURL: '',
+    baseURL: '/',
     timeout: 1000,
 })
 

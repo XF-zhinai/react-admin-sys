@@ -4,6 +4,7 @@ import storage from '../utils/storage.js'
 import Admin from '../pages/admin/admin.jsx'
 import Login from '../pages/login/login.jsx'
 import NotFound from '../components/NoFound';
+import React from 'react';
 
 // 路由守卫
 const RouteGuard = ({ children }) => {
@@ -25,7 +26,13 @@ const route = [
                 element: lazy(import("../pages/category"))
             }, {
                 path: 'product',
-                element: lazy(import("../pages/product"))
+                element: lazy(import("../pages/product")),
+                children: [
+                    {
+                        path: 'addProduct',
+                        element: lazy(import("../pages/product/addProduct"))
+                    }
+                ]
             }, {
                 path: 'role',
                 element: lazy(import("../pages/role"))

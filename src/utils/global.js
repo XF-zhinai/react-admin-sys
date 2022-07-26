@@ -2,7 +2,6 @@ import React from "react";
 import {
     useLocation,
     useNavigate,
-
 } from "react-router";
 import Loading from "../components/loading";
 
@@ -33,8 +32,21 @@ const formateDate = (time) => {
     return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
     + ' ' + date.getHours() + ':' + date.getMinutes()
 }
+
+// 深度拷贝
+const deepCopy = (obj) => {
+    if (typeof obj !== 'object') return
+    let newObj = obj instanceof Array ? [] : {}
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            newObj[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]) : obj[key]
+        }
+    }
+    return newObj
+}
 export {
     withRouter,
     lazy,
-    formateDate
+    formateDate,
+    deepCopy
 }

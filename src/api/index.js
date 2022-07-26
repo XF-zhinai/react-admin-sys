@@ -8,4 +8,6 @@ export const reqWeather = city => http({ url: `https://www.yiketianqi.com/free/d
 export const reqCategoryList = parentId => http({ url: `${host}/manage/category/list`, params: { parentId }, method: 'get' }) // 获取一级、二级分类列表
 export const reqAddCategory = ({ parentId, categoryName }) => http({ url: `${host}/manage/category/add`, data: { parentId, categoryName }, method: 'post' }) // 添加分类
 export const reqUpDateCategory = (data) => http({ url: `${host}/manage/category/update`, data, method: 'post' }) // 更新分类
-
+export const reqProduct = ({ pageNum, pageSize }) => http({ url: `${host}/manage/product/list`, params: { pageNum, pageSize }, method: 'get' }) // 获取商品列表
+export const reqCategory = categoryId => http({ url: `${host}/manage/category/info`, params: { categoryId }, method: 'get' }) // 获取商品名
+export const reqSearchCategory = data => http({url: `${host}/manage/product/search?pageNum=1&pageSize=20`, params: data, method: 'get'}) // 搜索商品

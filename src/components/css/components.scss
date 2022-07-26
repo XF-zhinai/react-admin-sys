@@ -12,7 +12,7 @@
             border-bottom: 1px solid #1890ff;
 
         }
-        
+
         .head_layout_b {
             height: 40px;
             line-height: 40px;
@@ -25,14 +25,14 @@
                 text-align: center;
 
                 &::after {
-                    content: ''; 
-                    position: absolute; 
-                    top: 40px; 
-                    right: 50%; 
-                    transform: translateX(50%); 
-                    border-top: 20px solid white; 
-                    border-right: 20px solid transparent; 
-                    border-bottom: 20px solid transparent; 
+                    content: '';
+                    position: absolute;
+                    top: 40px;
+                    right: 50%;
+                    transform: translateX(50%);
+                    border-top: 20px solid white;
+                    border-right: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
                     border-left: 20px solid transparent;
                 }
             }
@@ -70,7 +70,7 @@
         height: 80px;
         width: 100%;
         background-color: #002140;
-        
+
         img {
             margin: 0 15px;
             width: 40px;
@@ -92,4 +92,15 @@
     outline: none;
     cursor: pointer;
     color: #1890ff;
+}
+
+.ant-modal-footer-custom {
+    padding-bottom: 0 !important;
+    margin-bottom: -10px;
+}
+
+.assembly_tabs_box {
+    .ant-tabs-nav {
+        margin-top: -20px !important;
+    }
 }
