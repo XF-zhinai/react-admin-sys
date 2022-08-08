@@ -94,13 +94,45 @@
     color: #1890ff;
 }
 
+// 公共模态框的表单页脚
 .ant-modal-footer-custom {
     padding-bottom: 0 !important;
     margin-bottom: -10px;
 }
 
+// 公共切换栏
 .assembly_tabs_box {
     .ant-tabs-nav {
         margin-top: -20px !important;
+    }
+}
+
+// 公共搜索框
+.assembly_search_form_box {
+    .search_form_grid {
+        display: flex;
+        flex-direction: row;
+
+        .search_form_item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 15px;
+        }
+
+        .search_form_column {
+            .ant-form-item {
+                margin-bottom: 20px;
+                display: grid;
+                grid-template-columns: 3em auto;
+            }
+
+            .ant-picker {
+                width: 100%;
+            }
+        }
+
+        .search_btn {
+            padding-left: 20px;
+        }
     }
 }

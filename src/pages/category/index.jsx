@@ -4,11 +4,7 @@ import { Card, Button, Table, Space } from "antd";
 import LinkButton from "../../components/button";
 import AssemblyModal from "../../components/assembly/assemblyModal";
 import { PlusOutlined, ArrowRightOutlined } from "@ant-design/icons";
-import {
-  reqCategoryList,
-  reqUpDateCategory,
-  reqAddCategory,
-} from "../../api/index";
+import Api from "../../api/http";
 import "./index.scss";
 
 class Category extends React.Component {
@@ -77,8 +73,6 @@ class Category extends React.Component {
     },
   };
 
-  
-
   // 初始化商品表格
   initColumns = () => {
     this.columns = [
@@ -146,7 +140,7 @@ class Category extends React.Component {
     });
     this.addModal.modelType.form2.detail[0].data = selectOneCategory;
 
-    this.addModalRef.current.openModal("edit");
+    this.addModalRef.current.openModal("add");
   };
 
   editSuccessFn = (data) => {
@@ -154,12 +148,17 @@ class Category extends React.Component {
       categoryId: this.state.parentId,
       categoryName: data.name,
     };
-    reqUpDateCategory(dataObj).then((res) => {
-      if (res.status === 0) {
-        this.editModalRef.current.closeModal();
-        this.getCategory(0);
-      }
-    });
+    window.$http
+      .post({
+        url: Api.upDateCategory(),
+        data: dataObj,
+      })
+      .then((res) => {
+        if (res.status === 0) {
+          this.editModalRef.current.closeModal();
+          this.getCategory(0);
+        }
+      });
   };
 
   addSuccessFn = (data) => {
@@ -172,12 +171,17 @@ class Category extends React.Component {
 
   // 获取所有商品的列表
   getCategory = (parentId) => {
-    reqCategoryList(parentId).then((res) => {
-      this.setState({
-        categoryList: res.data.reverse(),
-        loading: false,
+    window.$http
+      .get({
+        url: Api.categoryList(),
+        data: { parentId },
+      })
+      .then((res) => {
+        this.setState({
+          categoryList: res.data.reverse(),
+          loading: false,
+        });
       });
-    });
   };
 
   // 一级分类列表
@@ -188,12 +192,17 @@ class Category extends React.Component {
 
   // 调用添加一、二级商品的接口
   getAddCategory = (parentId, categoryName) => {
-    reqAddCategory({ parentId, categoryName }).then((res) => {
-      if (res.status === 0) {
-        this.addModalRef.current.closeModal();
-        this.getCategory(0);
-      }
-    });
+    window.$http
+      .post({
+        url: Api.addCategory(),
+        data: { parentId, categoryName },
+      })
+      .then((res) => {
+        if (res.status === 0) {
+          this.addModalRef.current.closeModal();
+          this.getCategory(0);
+        }
+      });
   };
 
   componentDidMount() {
